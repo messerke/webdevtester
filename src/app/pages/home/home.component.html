@@ -1,0 +1,21 @@
+
+<div class="content">
+    <ngb-carousel *ngIf="images" #carousel class="slider-container">
+        <ng-template ngbSlide *ngFor="let image of images; let i = index; let first = first; let last = last" 
+            (slid)="activeImage = i">
+            <div class="picsum-img-wrapper">
+                <img [src]="image.image"/>
+            </div>
+            <div class="carousel-caption">
+                <p *ngIf="first">{{images[1].text}}</p>
+                <p *ngIf="!first && !last">{{(images[activeImage + 1]) ? images[activeImage + 1].text : ''}}</p>
+                <p *ngIf="last">{{images[0].text}}</p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+    <button mat-button color="primary"
+    class="download" 
+        (click)="downloadImage()">Download</button>
+</div>
+
+

@@ -1,0 +1,12 @@
+<mat-toolbar>
+    <button mat-mini-fab color="primary" (click)="toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <img src="../../../assets/images/logo.png" class="logo">
+    <ng-container *ngIf="loginService.user$ | async as user">
+        <button mat-raised-button 
+            color="primary"
+            (click)="login()"
+            *ngIf="!user.loggedIn">Login</button>
+    </ng-container>
+</mat-toolbar>

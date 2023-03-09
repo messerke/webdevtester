@@ -1,0 +1,3 @@
+<ng-container *ngIf="loginService.user$ | async as user">
+    <h2>Welcome: {{user.email}}</h2>
+</ng-container>
